@@ -35,6 +35,60 @@
     .highlight-box { background: #f0f9ff; border: 1px solid #bae6fd; border-radius: 8px; padding: 20px 24px; margin: 24px 0; }
     .highlight-box p { margin-bottom: 8px; }
     .highlight-box p:last-child { margin-bottom: 0; }
+
+    /* Flow diagram */
+    .flow-section { margin: 40px 0; }
+    .flow-section h2 { margin-top: 0; }
+    .flow-diagram { display: flex; flex-direction: column; gap: 0; margin: 24px 0; }
+    .flow-step { display: flex; align-items: flex-start; gap: 16px; position: relative; }
+    .flow-step:last-child .flow-line { display: none; }
+    .flow-icon-col { display: flex; flex-direction: column; align-items: center; flex-shrink: 0; width: 48px; }
+    .flow-icon {
+      width: 48px; height: 48px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px; flex-shrink: 0; position: relative; z-index: 1;
+    }
+    .flow-icon.customer { background: #dbeafe; border: 2px solid #3b82f6; }
+    .flow-icon.system { background: #f0fdf4; border: 2px solid #22c55e; }
+    .flow-icon.ai { background: #faf5ff; border: 2px solid #a855f7; }
+    .flow-icon.optout { background: #fef2f2; border: 2px solid #ef4444; }
+    .flow-line {
+      width: 2px; background: var(--gray-200); flex-grow: 1; min-height: 20px;
+    }
+    .flow-content { padding: 10px 0 28px; flex: 1; }
+    .flow-label {
+      font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;
+      margin-bottom: 4px;
+    }
+    .flow-label.customer-label { color: #3b82f6; }
+    .flow-label.system-label { color: #22c55e; }
+    .flow-label.ai-label { color: #a855f7; }
+    .flow-label.optout-label { color: #ef4444; }
+    .flow-title { font-size: 15px; font-weight: 600; color: var(--gray-800); margin-bottom: 4px; }
+    .flow-desc { font-size: 14px; color: var(--gray-500); margin-bottom: 0; }
+    .flow-msg {
+      background: #f9fafb; border: 1px solid var(--gray-200); border-radius: 8px;
+      padding: 10px 14px; margin-top: 8px; font-size: 13px; color: var(--gray-600);
+      font-style: italic; line-height: 1.5;
+    }
+    .flow-branch {
+      display: flex; gap: 12px; margin-top: 12px;
+    }
+    .flow-branch-option {
+      flex: 1; background: #f9fafb; border: 1px solid var(--gray-200);
+      border-radius: 8px; padding: 12px; font-size: 13px; color: var(--gray-600);
+    }
+    .flow-branch-option strong { color: var(--gray-800); display: block; margin-bottom: 4px; font-size: 12px; }
+    .flow-legend {
+      display: flex; gap: 20px; flex-wrap: wrap; margin-top: 16px; padding: 16px;
+      background: #f9fafb; border-radius: 8px; border: 1px solid var(--gray-200);
+    }
+    .flow-legend-item { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--gray-600); }
+    .flow-legend-dot { width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; }
+    @media (max-width: 600px) {
+      .flow-branch { flex-direction: column; }
+      .flow-legend { flex-direction: column; gap: 8px; }
+    }
     .footer { background: #f9fafb; border-top: 1px solid var(--gray-200); padding: 24px; text-align: center; font-size: 13px; color: var(--gray-500); }
     .footer a { color: var(--gray-500); text-decoration: none; margin: 0 12px; }
     .footer a:hover { text-decoration: underline; }
@@ -50,6 +104,150 @@
 
     <div class="highlight-box">
       <p><strong>Quick summary:</strong> If you call a business that uses SnagThatLead and the call is not answered, you will receive a text message from that business. You can reply to that text to get help. You can stop receiving texts at any time by replying STOP.</p>
+    </div>
+
+    <div class="flow-section">
+      <h2>Messaging Flow Diagram</h2>
+      <p style="margin-bottom: 20px; font-size: 14px; color: var(--gray-500);">This diagram shows every scenario in which a text message is sent through our platform.</p>
+
+      <div class="flow-diagram">
+
+        <!-- Step 1 -->
+        <div class="flow-step">
+          <div class="flow-icon-col">
+            <div class="flow-icon customer">&#128222;</div>
+            <div class="flow-line"></div>
+          </div>
+          <div class="flow-content">
+            <p class="flow-label customer-label">Customer Action</p>
+            <p class="flow-title">Customer calls the business phone number</p>
+            <p class="flow-desc">The customer initiates contact by calling the business. This is the only trigger for the SMS flow. No messages are sent without the customer calling first.</p>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="flow-step">
+          <div class="flow-icon-col">
+            <div class="flow-icon system">&#128276;</div>
+            <div class="flow-line"></div>
+          </div>
+          <div class="flow-content">
+            <p class="flow-label system-label">System</p>
+            <p class="flow-title">Call rings for 20 seconds, forwarded to business owner</p>
+            <div class="flow-branch">
+              <div class="flow-branch-option">
+                <strong>If answered:</strong>
+                Normal phone call. No text messages are sent. Flow ends here.
+              </div>
+              <div class="flow-branch-option">
+                <strong>If not answered:</strong>
+                Voicemail plays. System detects the missed call and proceeds to Step 3.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="flow-step">
+          <div class="flow-icon-col">
+            <div class="flow-icon system">&#128172;</div>
+            <div class="flow-line"></div>
+          </div>
+          <div class="flow-content">
+            <p class="flow-label system-label">Automated (1 message)</p>
+            <p class="flow-title">Missed-call text-back sent to customer</p>
+            <p class="flow-desc">Within 60 seconds of the missed call, the system sends a single text message to the customer's phone number.</p>
+            <div class="flow-msg">"Hi, thanks for calling Smith's Plumbing! Sorry we missed you. How can we help?"</div>
+          </div>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="flow-step">
+          <div class="flow-icon-col">
+            <div class="flow-icon customer">&#128221;</div>
+            <div class="flow-line"></div>
+          </div>
+          <div class="flow-content">
+            <p class="flow-label customer-label">Customer Action</p>
+            <p class="flow-title">Customer replies (or doesn't)</p>
+            <div class="flow-branch">
+              <div class="flow-branch-option">
+                <strong>No reply:</strong>
+                No further messages sent. Flow ends here. The customer received only 1 text.
+              </div>
+              <div class="flow-branch-option">
+                <strong>Customer replies:</strong>
+                Example: "I have a leaking pipe in my kitchen." Conversation continues to Step 5.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 5 -->
+        <div class="flow-step">
+          <div class="flow-icon-col">
+            <div class="flow-icon ai">&#129302;</div>
+            <div class="flow-line"></div>
+          </div>
+          <div class="flow-content">
+            <p class="flow-label ai-label">AI-Assisted Response</p>
+            <p class="flow-title">AI assistant responds with qualifying questions</p>
+            <p class="flow-desc">The AI assistant, trained on the business's services and information, responds to help the customer. One question at a time. Responses are kept under 160 characters.</p>
+            <div class="flow-msg">"We can help with that. Is the leak active right now, or is it a slow drip? And are you in the Douglasville area?"</div>
+          </div>
+        </div>
+
+        <!-- Step 6 -->
+        <div class="flow-step">
+          <div class="flow-icon-col">
+            <div class="flow-icon ai">&#128197;</div>
+            <div class="flow-line"></div>
+          </div>
+          <div class="flow-content">
+            <p class="flow-label ai-label">AI-Assisted Response</p>
+            <p class="flow-title">Appointment booking (when customer is ready)</p>
+            <p class="flow-desc">Once the customer's needs are understood, the AI assistant offers to book an appointment and provides a booking link.</p>
+            <div class="flow-msg">"Got it. We can get someone out this week. Book a time that works for you here: https://cal.com/smiths-plumbing"</div>
+          </div>
+        </div>
+
+        <!-- Step 7 -->
+        <div class="flow-step">
+          <div class="flow-icon-col">
+            <div class="flow-icon system">&#9989;</div>
+            <div class="flow-line"></div>
+          </div>
+          <div class="flow-content">
+            <p class="flow-label system-label">System</p>
+            <p class="flow-title">Appointment confirmation</p>
+            <p class="flow-desc">After the customer books, a single confirmation message is sent.</p>
+            <div class="flow-msg">"Your appointment is confirmed for Thursday at 2pm. If anything changes, just reply to this text."</div>
+          </div>
+        </div>
+
+        <!-- Opt-out -->
+        <div class="flow-step">
+          <div class="flow-icon-col">
+            <div class="flow-icon optout">&#9940;</div>
+          </div>
+          <div class="flow-content">
+            <p class="flow-label optout-label">Opt-Out (available at any step)</p>
+            <p class="flow-title">Customer replies STOP at any time</p>
+            <p class="flow-desc">If the customer replies STOP, UNSUBSCRIBE, CANCEL, END, or QUIT at any point in the conversation, all messaging stops immediately. A single confirmation is sent.</p>
+            <div class="flow-msg">"You have been unsubscribed. No further messages will be sent. Reply START if you change your mind."</div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="flow-legend">
+        <div class="flow-legend-item"><div class="flow-legend-dot" style="background: #3b82f6;"></div> Customer action (initiates contact)</div>
+        <div class="flow-legend-item"><div class="flow-legend-dot" style="background: #22c55e;"></div> System automated (triggered by customer action)</div>
+        <div class="flow-legend-item"><div class="flow-legend-dot" style="background: #a855f7;"></div> AI-assisted response (only after customer replies)</div>
+        <div class="flow-legend-item"><div class="flow-legend-dot" style="background: #ef4444;"></div> Opt-out (honored immediately at any step)</div>
+      </div>
+
+      <p style="margin-top: 16px; font-size: 13px; color: var(--gray-500);"><strong>Key points:</strong> Messages are only sent after the customer calls first. If the call is answered, no texts are sent. If the customer never replies to the missed-call text, only 1 message is sent total. The customer can opt out at any point by replying STOP.</p>
     </div>
 
     <h2>1. Program Description</h2>
