@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="2.png">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -143,13 +144,15 @@
     }
 
     .nav-logo {
-      font-size: 20px;
-      font-weight: 700;
-      color: var(--navy);
+      display: flex;
+      align-items: center;
       text-decoration: none;
     }
 
-    .nav-logo span { color: var(--green); }
+    .nav-logo img {
+      height: 100px;
+      width: auto;
+    }
 
     .nav-cta {
       font-size: 14px;
@@ -692,7 +695,7 @@
   <!-- Nav -->
   <nav class="nav">
     <div class="container">
-      <a href="/" class="nav-logo">Snag<span>That</span>Lead</a>
+      <a href="/" class="nav-logo"><img src="1.png" alt="SnagThatLead"></a>
       <a href="#pricing" class="btn-primary nav-cta">Free Lead Audit</a>
     </div>
   </nav>
@@ -893,15 +896,15 @@
         <div class="pricing-body">
           <div class="pricing-row">
             <span class="pricing-label">One-time setup</span>
-            <span class="pricing-value">$497</span>
+            <span class="pricing-value">$395</span>
           </div>
           <div class="pricing-row">
             <span class="pricing-label">Monthly service</span>
-            <span class="pricing-value">$397<span>/mo</span></span>
+            <span class="pricing-value">$249<span>/mo</span></span>
           </div>
 
           <div class="pricing-math">
-            <strong>Quick math on the $397:</strong> Say you're paying $100 per lead from Google Ads. If our assistant catches even 5 leads a month that would have bounced, that's $500 in recovered lead value. The service pays for itself before you count the revenue from those booked appointments.
+            <strong>Quick math on the $249:</strong> Say you're paying $100 per lead from Google Ads. If our assistant catches even 3 leads a month that would have bounced, that's $300 in recovered lead value. The service pays for itself before you count the revenue from those booked appointments.
           </div>
 
           <div class="pricing-cta">
@@ -999,12 +1002,7 @@
   <footer class="footer">
     <div class="container">
       <p>&copy; 2026 SnagThatLead. All rights reserved.</p>
-      <p style="margin-top: 8px;">
-        <a href="/privacy.html" style="color: var(--gray-500); text-decoration: none; margin: 0 12px;">Privacy Policy</a>
-        <a href="/terms.html" style="color: var(--gray-500); text-decoration: none; margin: 0 12px;">Terms of Service</a>
-        <a href="/sms-terms.html" style="color: var(--gray-500); text-decoration: none; margin: 0 12px;">SMS Terms</a>
-        <a href="mailto:hello@snagthatlead.com" style="color: var(--gray-500); text-decoration: none; margin: 0 12px;">Contact</a>
-      </p>
+      <p>Questions? <a href="mailto:hello@snagthatlead.com">hello@snagthatlead.com</a></p>
     </div>
   </footer>
 
