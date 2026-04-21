@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SMS Opt-In and Call-to-Action - SnagThatLead</title>
+  <meta name="description" content="How end users opt in to SnagThatLead's SMS messaging program, including both the missed-call text-back flow and the chat widget flow.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy: #1a365d;
+      --navy-light: #2a4a7f;
+      --white: #ffffff;
+      --gray-100: #f3f4f6;
+      --gray-200: #e5e7eb;
+      --gray-500: #6b7280;
+      --gray-600: #4b5563;
+      --gray-800: #1f2937;
+      --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font); color: var(--gray-800); line-height: 1.7; background: var(--white); }
+    .nav { background: var(--navy); padding: 16px 24px; }
+    .nav a { color: var(--white); text-decoration: none; font-weight: 600; font-size: 18px; }
+    .container { max-width: 840px; margin: 0 auto; padding: 48px 24px 80px; }
+    h1 { font-size: 2rem; color: var(--navy); margin-bottom: 8px; }
+    .last-updated { color: var(--gray-500); font-size: 14px; margin-bottom: 40px; }
+    h2 { font-size: 1.25rem; color: var(--navy); margin-top: 40px; margin-bottom: 12px; }
+    h3 { font-size: 1rem; color: var(--navy); margin-top: 20px; margin-bottom: 8px; }
+    p, li { font-size: 15px; color: var(--gray-600); margin-bottom: 12px; }
+    ul { padding-left: 24px; margin-bottom: 16px; }
+    li { margin-bottom: 6px; }
+    a { color: var(--navy); }
+    .callout {
+      background: #f0f9ff; border: 1px solid #bae6fd; border-radius: 8px;
+      padding: 20px 24px; margin: 24px 0;
+    }
+    .callout p:last-child { margin-bottom: 0; }
+    .flow-card {
+      border: 1px solid var(--gray-200); border-radius: 10px;
+      padding: 24px; margin: 20px 0; background: var(--white);
+    }
+    .flow-card h3 { margin-top: 0; }
+    .disclosure-box {
+      background: var(--gray-100); border-left: 3px solid var(--navy);
+      padding: 16px 20px; margin: 16px 0; font-size: 14px;
+      color: var(--gray-800); border-radius: 4px;
+    }
+    .widget-mock {
+      border: 1px solid var(--gray-200); border-radius: 10px;
+      padding: 20px; margin: 20px 0; max-width: 420px;
+      background: var(--white); box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    }
+    .widget-mock .mock-label {
+      font-size: 11px; font-weight: 600; color: var(--gray-500);
+      text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px;
+    }
+    .widget-mock input {
+      width: 100%; padding: 10px 12px; border: 1px solid var(--gray-200);
+      border-radius: 6px; font-size: 14px; margin-bottom: 8px; font-family: var(--font);
+    }
+    .widget-mock .consent-text {
+      font-size: 11px; color: var(--gray-500); line-height: 1.5; margin-bottom: 12px;
+    }
+    .widget-mock .consent-text a { color: var(--navy); text-decoration: underline; }
+    .widget-mock button {
+      width: 100%; padding: 10px; background: var(--navy); color: var(--white);
+      border: none; border-radius: 6px; font-weight: 600; font-size: 14px; cursor: pointer;
+    }
+    table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px; }
+    th, td { padding: 10px 12px; border-bottom: 1px solid var(--gray-200); text-align: left; }
+    th { background: var(--gray-100); font-weight: 600; color: var(--navy); }
+    .footer-links { margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--gray-200); font-size: 14px; }
+    .footer-links a { margin-right: 16px; }
+  </style>
+</head>
+<body>
+  <nav class="nav"><a href="/">SnagThatLead</a></nav>
+  <div class="container">
+    <h1>SMS Opt-In and Call-to-Action</h1>
+    <p class="last-updated">Last updated: April 21, 2026</p>
+
+    <p>This page describes how end users opt in to receive SMS messages through the SnagThatLead AI platform. It is published so our business customers, their website visitors, and regulatory reviewers can verify the consent mechanisms in use.</p>
+
+    <div class="callout">
+      <p><strong>Program name:</strong> SnagThatLead Missed-Call Text-Back &amp; Chat Follow-Up</p>
+      <p><strong>Program purpose:</strong> Help local service businesses respond to missed calls and website chats by text, so the customer gets an answer quickly.</p>
+      <p><strong>Message types:</strong> Conversational and transactional only. No marketing or promotional messages are sent.</p>
+    </div>
+
+    <h2>How End Users Opt In</h2>
+    <p>There are exactly two ways a person can start receiving SMS messages through SnagThatLead. Both require the end user to contact the business first.</p>
+
+    <div class="flow-card">
+      <h3>Flow 1: Missed-Call Text-Back</h3>
+      <p>The end user dials the business's published phone number. If the call is not answered, our system sends a single automated text acknowledging the missed call and asking how the business can help. Example:</p>
+      <div class="disclosure-box">
+        Hi, thanks for calling Smith's Plumbing! Sorry we missed you. How can we help? Reply STOP to opt out, HELP for help. Msg&amp;data rates may apply.
+      </div>
+      <p>By replying to that message, the end user consents to continued conversational SMS about their inquiry. If they do not reply, no further messages are sent.</p>
+      <p>This flow is disclosed on the business's website and on this page. End users who do not wish to receive a text-back should not call the business.</p>
+    </div>
+
+    <div class="flow-card">
+      <h3>Flow 2: Chat Widget on the Business Website</h3>
+      <p>The end user visits the business website and starts a chat via the embedded SnagThatLead widget. During the chat, the widget asks for their phone number so the conversation can continue by text if the chat window closes. The consent disclosure below is rendered directly under the phone input, before the submit action:</p>
+      <div class="widget-mock">
+        <div class="mock-label">Chat widget — phone capture step</div>
+        <input type="text" placeholder="Your name" disabled>
+        <input type="tel" placeholder="Phone (so we can text back)" disabled>
+        <p class="consent-text">By providing your phone number, you agree to receive SMS messages from this business about your inquiry. Message frequency varies. Msg &amp; data rates may apply. Reply STOP to opt out, HELP for help. See <a href="/sms-terms.html">SMS Terms</a> and <a href="/privacy.html">Privacy Policy</a>.</p>
+        <button type="button" disabled>Start chat</button>
+      </div>
+      <p>Submitting the phone number with this disclosure visible constitutes affirmative consent. The system records the consent event with a timestamp, the submitting IP address, the user agent, the page the widget was embedded on, and an identifier for the disclosure language shown.</p>
+    </div>
+
+    <h2>Sample Messages</h2>
+    <p>The following samples represent the full range of messages an end user may receive after opting in.</p>
+    <table>
+      <thead>
+        <tr><th>#</th><th>Message</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td>Hi, thanks for calling Smith's Plumbing! Sorry we missed you. How can we help? Reply STOP to opt out, HELP for help. Msg&amp;data rates may apply.</td></tr>
+        <tr><td>2</td><td>We handle drain cleaning, water heater repair, and emergency plumbing. What are you dealing with?</td></tr>
+        <tr><td>3</td><td>Got it. We can get someone out to you this week. Does Thursday between 2-4pm work? Book here: https://cal.com/smiths-plumbing</td></tr>
+        <tr><td>4</td><td>Your appointment is confirmed for Thursday at 2pm. If anything changes, just reply to this text.</td></tr>
+        <tr><td>5</td><td>Thanks for reaching out. If you need anything else, just text this number anytime. We're here to help.</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Message Frequency</h2>
+    <p>One automated text is sent per missed call or chat phone submission. Replies from our system happen only in response to the end user's own messages. A single confirmation text is sent after an appointment is booked. Typical volume is 1 to 10 messages per conversation, depending on how much back-and-forth the end user chooses to engage in.</p>
+
+    <h2>Message &amp; Data Rates</h2>
+    <p>Standard message and data rates may apply depending on the end user's mobile carrier and plan. SnagThatLead does not charge end users to receive or send SMS.</p>
+
+    <h2>How to Get Help</h2>
+    <p>End users can reply <strong>HELP</strong> to any message to receive support information, or reply <strong>STOP</strong> to opt out immediately. Alternative opt-out keywords include CANCEL, END, QUIT, UNSUBSCRIBE, and REVOKE. Opt-outs are honored on the first receipt and confirmed with a single acknowledgment message.</p>
+
+    <h2>Carrier Disclaimer</h2>
+    <p>Carriers are not liable for delayed or undelivered messages. Delivery of SMS is subject to carrier availability and end user device status.</p>
+
+    <h2>Data Handling</h2>
+    <p>Phone numbers and SMS opt-in data are not shared with third parties or affiliates for marketing purposes. No mobile information will be sold. Full details are in our <a href="/privacy.html">Privacy Policy</a>.</p>
+
+    <h2>Contact</h2>
+    <p>Questions about the SMS program can be directed to <a href="mailto:support@snagthatlead.com">support@snagthatlead.com</a>.</p>
+
+    <div class="footer-links">
+      <a href="/sms-terms.html">SMS Terms and Conditions</a>
+      <a href="/privacy.html">Privacy Policy</a>
+      <a href="/terms.html">Website Terms</a>
+    </div>
+  </div>
+</body>
+</html>
